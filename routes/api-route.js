@@ -7,7 +7,7 @@ const path = require("path");
 const readFileAsync = util.promisify(fs.readFile);
 const writeFileAsync = util.promisify(fs.writeFile);
 
-const PATH = path.join(__dirname, "./db/db.json");
+const PATH = path.join(__dirname, "../db/db.json");
 
 router.get("/api/notes", (req, res) => {
   readFileAsync(PATH, "utf8")

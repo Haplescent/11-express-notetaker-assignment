@@ -2,8 +2,13 @@ const express = require("express");
 const app = express();
 const colors = require("colors");
 const cowsay = require("cowsay");
-const PORT = 3000;
+
 const path = require("path");
+
+let PORT = process.env.PORT;
+if (PORT == null || PORT == "") {
+  PORT = 3000;
+}
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
