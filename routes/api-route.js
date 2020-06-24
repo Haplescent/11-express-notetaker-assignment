@@ -8,7 +8,7 @@ const readFileAsync = util.promisify(fs.readFile);
 const writeFileAsync = util.promisify(fs.writeFile);
 
 router.get("/api/notes", async (req, res) => {
-  let file = JSON.parse(await readFileAsync("./db/db.json", "utf8"));
+  const file = JSON.parse(await readFileAsync("./db/db.json", "utf8"));
   res.send(file);
 });
 
