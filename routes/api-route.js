@@ -8,7 +8,6 @@ const readFileAsync = util.promisify(fs.readFile);
 const writeFileAsync = util.promisify(fs.writeFile);
 
 router.get("/api/notes", (req, res) => {
-  // const file = JSON.parse(await readFileAsync("./db/db.json", "utf8"));
   readFileAsync("./db/db.json", "utf8")
     .then((file) => {
       return JSON.parse(file);
@@ -18,8 +17,8 @@ router.get("/api/notes", (req, res) => {
     });
 });
 
-router.post("/api/notes", async (req, res) => {
-  await readFileAsync("./db/db.json", "utf8")
+router.post("/api/notes", (req, res) => {
+  readFileAsync("./db/db.json", "utf8")
     .then((file) => {
       return JSON.parse(file);
     })
@@ -35,8 +34,8 @@ router.post("/api/notes", async (req, res) => {
     });
 });
 
-router.delete("/api/notes/:id", async (req, res) => {
-  await readFileAsync("./db/db.json", "utf8")
+router.delete("/api/notes/:id", (req, res) => {
+  readFileAsync("./db/db.json", "utf8")
     .then((file) => {
       return JSON.parse(file);
     })
